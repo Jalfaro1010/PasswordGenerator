@@ -20,7 +20,7 @@ function getRandomUpper(){
 }
 
 // Function that returns a random number.
-function getRandomNUmber(){
+function getRandomNumber(){
     const numbers = `0123456789`;
 
     return numbers[randomIndex(numbers)];
@@ -32,3 +32,20 @@ function getRandomSymbol(){
 
     return symbols[randomIndex(symbol)];
 }
+
+const tandomFunctions = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    symbol: getRandomSymbol,
+};
+
+// Selecting the DOM Elements
+const resultEl = document.querySelector9(`#result`);
+const clipboardEl = document.querySelector9(`#clipboard`);
+const lowercaseEl = document.querySelector9(`#lowercase`);
+const uppercaseEl = document.querySelector9(`#uppercase`);
+const numbersEl = document.querySelector9(`#numbers`);
+const symbolEl = document.querySelector9(`#symbol`);
+const lengthEl = document.querySelector9(`#length`);
+const generateEl = document.querySelector9(`#generate`);
