@@ -150,6 +150,41 @@ function randomIndex(str){
 
     // The generatePassword function takes the true/false values determined by the checkboxes as well as the number from the number input as arguments and returns a string
  resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
-  });
+ });
+ // Copy Password
+ clipboardEl.addEventListener(`click`, () => {
+// Creating a textarea element which will be used to put the password inside of so that it can be selected/copied
+     const textarea = document.createElement(`textarea`);
+
+     // Accessing the test/string value for the "result" span and setting it to the password variable
+     const password = resultEl.innerText;
+
+     // if user clicks the clipboard while no password is displayed the function will end and nothing will be copied.
+     if (password === ``){
+         alert(`Please generate a password first`);
+         return;
+        }
+
+        // Setting the vlaue for the textarea to the password that is currently being displayed
+        textarea.value = password;
+
+        const body = document,querySelector(`body`);
+
+        // Adding the textarea to the document/webpage
+        body.append(textarea);
+
+        // using the select method which selects (AKA focuses in on) an element. This is will highlight/selects the value inside the textarea.
+        textarea.select();
+
+        // using execCommand to copy the selected value
+        // NOTE: Some execCommand commands/arugments are not supported by all browsers.However, copy is an exeCommand that all browsers support.
+        document.execCommand(`copy`);
+
+        // Removes the textarea element from the document/webpage
+        textarea.remove();
+
+        alert(`Password has been copied to the clipbard`);
+
+ });
 
   
